@@ -3,7 +3,10 @@ package jaxwsExample.ws;
 import javax.jws.WebService;
 import javax.jws.soap.SOAPBinding;
 import javax.jws.soap.SOAPBinding.Style;
-
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.Response;
 /**
  * 
  * @author Nikhil
@@ -12,9 +15,11 @@ import javax.jws.soap.SOAPBinding.Style;
  */
 @WebService
 @SOAPBinding(style = Style.RPC)
+@Path("/codetest")
 public class CodeTestimpl implements CodeTest{
 
-
+	@GET
+	@Produces("text/html")
 	public String checkMyCode() {
 		
 		int count = 1;//fetch this value from database to store count of hits.  
